@@ -11,7 +11,9 @@ Goal: replace the simulated production run with one verified, downloadable MP4 w
 ## Current state
 The Video Studio production flow is simulated. Browser object URLs do not provide durable server-side media storage. The app uses TanStack Start and Nitro with a Cloudflare-module target, so provider secrets must remain server-side. The build has not been verified as clean and repeatable.
 
-A preliminary server-only Rendobar adapter now exists at `src/lib/server/rendobar.ts`. It supports provider-side Compose validation, job submission, and job-status retrieval. It is not yet wired into a route or the Video Studio, and has not been build-tested. It does not upload browser files, persist job records, authenticate users, or debit customer credits.
+The Settings route is currently a placeholder, not a provider-configuration screen. Do not assume it can accept API keys or use browser storage for secrets. The first render should use a protected deployment/server environment binding once its exact access pattern is verified for this runtime. No secret name or runtime API should be guessed.
+
+A preliminary server-only Rendobar adapter exists at `src/lib/server/rendobar.ts`. It supports provider-side Compose validation, job submission, and job-status retrieval. It is not yet wired into a route or the Video Studio, and has not been build-tested. It does not upload browser files, persist job records, authenticate users, or debit customer credits.
 
 ## First MVP
 1. Accept a small set of JPG/PNG images.
